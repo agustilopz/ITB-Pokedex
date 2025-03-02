@@ -1,0 +1,5 @@
+Number,Name,Type 1,Type 2,Att,Def,Experience type,Final Evolution,Catch Rate,Legendary,Height,Weight
+1,Bulbasaur,Grass,Poison,49,49,Medium Slow,0.0,45,0.0,0.7,6.9
+2,Ivysaur,Grass,Poison,62,63,Medium Slow,0.0,45,0.0,1.0,13.0
+3,Venusaur,Grass,Poison,82,83,Medium Slow,1.0,45,0.0,2.0,100.0
+3,Mega Venusaur,Grass,Poison,100,123,Medium Slow,1.0,45,0.0,2.4,155.5
