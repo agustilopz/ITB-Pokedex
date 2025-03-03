@@ -18,6 +18,7 @@ class Pokemon {
     private var legendary: Boolean
     private var height: Double
     private var weight: Double
+    private var imagePath: String = ""
 
     constructor(number: Int, name: String, type1: PokemonType, type2: PokemonType,abilities: MutableList<String>, hp: Int, attack: Int, defense: Int, spAtk: Int, spDef: Int, speed: Int, experienceType: String, finalEvolution: Boolean, catchRate: Int, legendary: Boolean, height: Double, weight: Double) {
         this.number = number
@@ -263,12 +264,39 @@ class Pokemon {
         return speed
     }
 
+    /**
+     * Genera la ruta de la imatge
+     *
+     * @return Ruta de la imatge.
+     */
+    fun generateImagePath(): String {
+        return "/img/" + this.getName().lowercase() + ".png"
+    }
+
+    /**
+     * Obté la ruta de imatge del Pokémon.
+     *
+     * @return Ruta de la imatge.
+     */
+    fun getImagePath(): String {
+        return imagePath
+    }
+
+    /**
+     * Modifica la ruta de la imatge del Pokémon
+     *
+     *@param path Ruta de la imatge
+     */
+    fun setImagePath(path: String) {
+        this.imagePath = path
+    }
+
     override fun toString(): String {
         return "Name: $name, Type 1: ${type1.eng}, Type 2: ${type2.eng}, " +
                 "Abilities: ${abilities.joinToString(", ")}, HP: $hp, Attack: $attack, " +
                 "Defense: $defense, Sp. Atk: $spAtk, Sp. Def: $spDef, Speed: $speed, " +
                 "Experience Type: $experienceType, Final Evolution: $finalEvolution, " +
-                "Catch Rate: $catchRate, Legendary: $legendary, Height: $height, Weight: $weight"
+                "Catch Rate: $catchRate, Legendary: $legendary, Height: $height, Weight: $weight, Image Path: $imagePath"
     }
 
 

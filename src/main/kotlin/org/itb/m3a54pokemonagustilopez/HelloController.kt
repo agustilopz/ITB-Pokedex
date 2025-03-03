@@ -3,6 +3,8 @@ package org.itb.m3a54pokemonagustilopez
 import controller.crearPokemons
 import javafx.fxml.FXML
 import javafx.scene.control.*
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 
 class HelloController {
 
@@ -87,10 +89,13 @@ class HelloController {
     @FXML
     private lateinit var btnPrevious: Button
 
+    @FXML
+    private lateinit var pokemonImage: ImageView
+
+
     // Començarem pel pokemon en la posició [0]
     private var indexActual = 0
     var llistaPokemons = crearPokemons()
-
 
 
     @FXML
@@ -102,22 +107,26 @@ class HelloController {
     private fun mostrarPokemons() {
         val pokemon = llistaPokemons[indexActual]
         lblCount.text = "${indexActual+1}/${llistaPokemons.size}"
-        lblName.text = "Name: " + pokemon.getName()
-        lblType1.text = "Type 1: " + pokemon.getType1()
-        lblType2.text = "Type 2: " + pokemon.getType2()
-        lblHp.text = "HP: " + pokemon.getHp()
-        lblAttack.text = "Attack: " + pokemon.getAttack()
-        lblDefense.text = "Defense: " + pokemon.getDefense()
-        lblspAtk.text = "Sp. Atk: " + pokemon.getSpatk()
-        lblspDef.text = "Sp. Def: " + pokemon.getSpdef()
-        lblspeed.text = "Speed: " + pokemon.getSpeed()
-        lblEncounters1.text = "Encounters: "
+        lblName.text = pokemon.getName().uppercase()
+        lblType1.text = pokemon.getType1().eng.uppercase()
+        lblType2.text = "Type 2"// + pokemon.getType2()
+        lblHp.text = "HP"// + pokemon.getHp()
+        lblAttack.text = "Attack"// + pokemon.getAttack()
+        lblDefense.text = "Defense"// + pokemon.getDefense()
+        lblspAtk.text = "Sp. Atk"// + pokemon.getSpatk()
+        lblspDef.text = "Sp. Def"// + pokemon.getSpdef()
+        lblspeed.text = "Speed"// + pokemon.getSpeed()
+        lblEncounters1.text = "Encounters"
         lblEncounters2.text ="Number Defeated: 0"
         lblEncounters3.text ="Number Defeated: 0"
-        progressBarAttack.progress = pokemon.getHp() / 100.0
-        progressBarDefense.progress = pokemon.getDefense() / 100.0
-        progressBarSpAtk.progress = pokemon.getSpatk() / 100.0
-        progressBarSpDef.progress = pokemon.getSpdef() / 100.0
+        progressBarAttack.progress = pokemon.getHp() / 130.0
+        progressBarDefense.progress = pokemon.getDefense() / 130.0
+        progressBarSpAtk.progress = pokemon.getSpatk() / 130.0
+        progressBarSpDef.progress = pokemon.getSpdef() / 130.0
+
+        val imagePath = pokemon.getImagePath()
+        val image = Image(javaClass.getResource(imagePath)!!.toExternalForm())
+        pokemonImage.image = image
 
     }
     @FXML

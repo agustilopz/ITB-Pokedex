@@ -49,6 +49,8 @@ fun crearPokemons(): MutableList<Pokemon> {
 
         var pokemon: Pokemon = Pokemon(number,name, type1,type2,abilities,hp,attack,defense,spAtk,spDef,speed,experienceType,finalEvolution,catchRate,legendary,height,weight)
         llistaPokemons.add(pokemon)
+        var imagePath = pokemon.generateImagePath()
+        pokemon.setImagePath(imagePath)
     }
     return llistaPokemons
 }
