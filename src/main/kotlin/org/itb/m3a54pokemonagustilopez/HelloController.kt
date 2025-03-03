@@ -5,7 +5,18 @@ import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import kotlin.reflect.typeOf
 
+/**
+ * Controlador de la interfície gràfica d'usuari per mostrar i navegar per la llista de Pokémons.
+ *
+ * Aquest controlador gestiona la interacció amb la interfície d'usuari per mostrar informació detallada
+ * sobre cada Pokémon (nom, tipus, estadístiques, imatge, etc.) i permet navegar entre els Pokémons mitjançant
+ * els botons de "anterior" i "següent".
+ *
+ * @author Agustí López
+ * @since 03/03/03
+ */
 class HelloController {
 
     @FXML
@@ -42,24 +53,6 @@ class HelloController {
     private lateinit var lblspeed: Label
 
     @FXML
-    private lateinit var lblExperienceType: Label
-
-    @FXML
-    private lateinit var lblFinalEvolution: Label
-
-    @FXML
-    private lateinit var lblCatchRate: Label
-
-    @FXML
-    private lateinit var lblLegendary: Label
-
-    @FXML
-    private lateinit var lblHeight: Label
-
-    @FXML
-    private lateinit var lblWeight: Label
-
-    @FXML
     private lateinit var lblEncounters1: Label
 
     @FXML
@@ -87,9 +80,6 @@ class HelloController {
     private lateinit var progressBarSpeed: ProgressBar
 
     @FXML
-    private lateinit var btnPrevious: Button
-
-    @FXML
     private lateinit var pokemonImage: ImageView
 
 
@@ -97,38 +87,62 @@ class HelloController {
     private var indexActual = 0
     var llistaPokemons = crearPokemons()
 
-
+    /**
+     * Inicialitza el controlador i mostra el primer Pokémon.
+     */
     @FXML
     fun initialize() {
         mostrarPokemons()
     }
 
-
+    /**
+     * Mostra les dades del Pokémon actual a la interfície d'usuari.
+     *
+     * Actualitza els valors de les etiquetes, barres de progrés i la imatge del Pokémon
+     * en funció de les estadístiques del Pokémon actual seleccionat.
+     */
     private fun mostrarPokemons() {
         val pokemon = llistaPokemons[indexActual]
         lblCount.text = "${indexActual+1}/${llistaPokemons.size}"
         lblName.text = pokemon.getName().uppercase()
         lblType1.text = pokemon.getType1().eng.uppercase()
-        lblType2.text = "Type 2"// + pokemon.getType2()
-        lblHp.text = "HP"// + pokemon.getHp()
-        lblAttack.text = "Attack"// + pokemon.getAttack()
-        lblDefense.text = "Defense"// + pokemon.getDefense()
-        lblspAtk.text = "Sp. Atk"// + pokemon.getSpatk()
-        lblspDef.text = "Sp. Def"// + pokemon.getSpdef()
-        lblspeed.text = "Speed"// + pokemon.getSpeed()
+        lblHp.text = "HP"
+        lblAttack.text = "Attack"
+        lblDefense.text = "Defense"
+        lblspAtk.text = "Sp. Atk"
+        lblspDef.text = "Sp. Def"
+        lblspeed.text = "Speed"
         lblEncounters1.text = "Encounters"
         lblEncounters2.text ="Number Defeated: 0"
         lblEncounters3.text ="Number Defeated: 0"
-        progressBarAttack.progress = pokemon.getHp() / 130.0
+        progressBarHp.progress = pokemon.getHp() / 130.0
+        progressBarAttack.progress = pokemon.getAttack() / 130.0
         progressBarDefense.progress = pokemon.getDefense() / 130.0
         progressBarSpAtk.progress = pokemon.getSpatk() / 130.0
         progressBarSpDef.progress = pokemon.getSpdef() / 130.0
-
+        progressBarSpeed.progress = pokemon.getSpeed() / 130.0
+        var typeColor = "orange"
+        when(pokemon.getType1().eng.lowercase()) {
+            "normal" -> typeColor="#6604fe"
+            "fire" -> typeColor="orange"
+            "grass" -> typeColor="#4caf50"
+            "water" -> typeColor="#0000FF"
+            "psychic" -> typeColor="#9B4D96"
+            "dragon" -> typeColor="#FF0000"
+            "electric" -> typeColor="#FFFF00"
+        }
+        lblType1.style += " -fx-background-color: ${typeColor};"
         val imagePath = pokemon.getImagePath()
         val image = Image(javaClass.getResource(imagePath)!!.toExternalForm())
         pokemonImage.image = image
 
     }
+
+    /**
+     * Mostra el Pokémon anterior de la llista, si existeix.
+     *
+     * Redueix l'índex actual i actualitza la vista.
+     */
     @FXML
     fun previousPokemon() {
         if (indexActual > 0) {
@@ -137,6 +151,11 @@ class HelloController {
         }
     }
 
+    /**
+     * Mostra el següent Pokémon de la llista, si existeix.
+     *
+     * Augmenta l'índex actual i actualitza la vista.
+     */
     @FXML
     fun nextPokemon() {
         if (indexActual < llistaPokemons.size - 1) {

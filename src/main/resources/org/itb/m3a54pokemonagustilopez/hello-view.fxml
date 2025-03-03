@@ -4,39 +4,43 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefWidth="460.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.itb.m3a54pokemonagustilopez.HelloController">
+<VBox alignment="CENTER" prefWidth="516.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.itb.m3a54pokemonagustilopez.HelloController">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <ToolBar prefHeight="40.0" prefWidth="200.0">
+   <ToolBar maxHeight="20.0" maxWidth="550.0" prefHeight="20.0" prefWidth="550.0" style="-fx-background-color: #30bfd7; -fx-background-radius: 5px;">
      <items>
-         <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="100.0">
+         <HBox alignment="CENTER" maxWidth="30.0" minWidth="30.0" prefHeight="20.0" prefWidth="30.0">
             <children>
-                <Button fx:id="btnPrevious" onAction="#previousPokemon" text="&lt;" />
+                <Button fx:id="btnPrevious" onAction="#previousPokemon" text="◀" />
+            </children>
+            <padding>
+               <Insets left="2.0" />
+            </padding>
+         </HBox>
+         <HBox alignment="CENTER" maxWidth="380.0" prefHeight="20.0" prefWidth="377.0">
+            <children>
+                <Label fx:id="lblCount" style="-fx-font-weight: bold; -fx-background-color: #1084b8; -fx-background-radius: 5px; -fx-padding: 3px;" text="1/5" textFill="WHITE" />
             </children>
          </HBox>
-         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+         <HBox alignment="CENTER" maxWidth="30.0" prefHeight="20.0" prefWidth="30.0">
             <children>
-                <!--<Button text="Hello!" onAction="#onHelloButtonClick"/>-->
-                <!-- Element Button per a interactuar amb l'usuari@ -->
-                <!--<Button fx:id="buttonHello" onMouseClicked="#onbuttonHelloClick" text="Click Here!" textFill="#ee0c0c"/>-->
-                <Label fx:id="lblCount" text="1/5" />
-            </children>
-         </HBox>
-         <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0">
-            <children>
-                <Button fx:id="btnNext" alignment="CENTER_RIGHT" contentDisplay="RIGHT" onAction="#nextPokemon" text="&gt;" textAlignment="RIGHT" />
+                <Button fx:id="btnNext" alignment="CENTER_RIGHT" contentDisplay="RIGHT" onAction="#nextPokemon" text="▶" textAlignment="RIGHT" />
             </children>
          </HBox>
      </items>
+      <VBox.margin>
+         <Insets bottom="-12.0" top="-8.0" />
+      </VBox.margin>
    </ToolBar>
-   <HBox prefHeight="30.0" prefWidth="200.0">
+   <HBox minHeight="30.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #30bfd7; -fx-background-radius: 5px;">
       <children>
          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Label fx:id="lblName" text="Charmander" />
+                <Label fx:id="lblName" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="Charmander" textFill="WHITE" />
             </children>
             <HBox.margin>
                <Insets />
@@ -45,31 +49,34 @@
                <Insets left="15.0" />
             </padding>
          </HBox>
-         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="250.0">
             <children>
-                <Label fx:id="lblType1" text="FIRE">
+                <Label fx:id="lblType1" alignment="CENTER" contentDisplay="CENTER" style="-fx-font-weight: bold; -fx-background-color: orange; -fx-padding: 1px 12px; -fx-alignment: center; -fx-text-alignment: center; -fx-background-radius: 3px;" text="FIRE" textFill="WHITE">
                   <padding>
                      <Insets right="15.0" />
                   </padding>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
                </Label>
-                <Label fx:id="lblType2" text="Type 2" />
+                <!--<Label fx:id="lblType2" text="Type 2" />-->
             </children>
          </HBox>
       </children></HBox>
    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
-         <HBox prefHeight="100.0" prefWidth="200.0">
+         <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #30bfd7; -fx-background-radius: 8px;">
             <children>
                <HBox prefHeight="100.0" prefWidth="200.0">
                   <children>
                      <VBox prefHeight="36.0" prefWidth="99.0">
                         <children>
-                            <Label fx:id="lblHp" prefHeight="20.0" text="HP" />
-                            <Label fx:id="lblAttack" prefHeight="20.0" text="Attack" />
-                            <Label fx:id="lblDefense" prefHeight="20.0" text="Defense" />
-                            <Label fx:id="lblspAtk" prefHeight="20.0" text="Sp. Atk" />
-                            <Label fx:id="lblspDef" prefHeight="20.0" text="Sp. Def" />
-                            <Label fx:id="lblspeed" prefHeight="20.0" text="Speed" />
+                            <Label fx:id="lblHp" prefHeight="20.0" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="HP" textFill="WHITE" />
+                            <Label fx:id="lblAttack" prefHeight="20.0" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="Attack" textFill="WHITE" />
+                            <Label fx:id="lblDefense" prefHeight="20.0" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="Defense" textFill="WHITE" />
+                            <Label fx:id="lblspAtk" prefHeight="20.0" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="Sp. Atk" textFill="WHITE" />
+                            <Label fx:id="lblspDef" prefHeight="20.0" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="Sp. Def" textFill="WHITE" />
+                            <Label fx:id="lblspeed" prefHeight="20.0" style="-fx-effect: dropshadow( gaussian , black , 2, 0 , 0 , 0 ); -fx-font-weight: bold;" text="Speed" textFill="WHITE" />
                         </children>
                      </VBox>
                   </children>
@@ -89,17 +96,35 @@
                   </children>
                </HBox>
             </children>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
          </HBox>
          <VBox alignment="CENTER" prefHeight="300.0" prefWidth="300.0">
             <children>
                 <ImageView fx:id="pokemonImage" fitHeight=" 125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
             </children></VBox>
-      </children></HBox>
-   <VBox prefHeight="75.0" prefWidth="100.0">
-      <children>
-          <Label fx:id="lblEncounters1" text="Encounters" />
-          <Label fx:id="lblEncounters2" text="Number Defeated: 0" />
-          <Label fx:id="lblEncounters3" text="Number Captured: 0" />
       </children>
+      <VBox.margin>
+         <Insets top="-12.0" />
+      </VBox.margin></HBox>
+   <VBox prefHeight="75.0" prefWidth="100.0" style="-fx-border-color: #30bfd7; -fx-border-width: 5px; -fx-border-radius: 3px;">
+      <children>
+          <Label fx:id="lblEncounters1" style="-fx-padding: 0px 5px;" text="Encounters">
+            <font>
+               <Font name="Times New Roman" size="15.0" />
+            </font></Label>
+          <Label fx:id="lblEncounters2" style="-fx-padding: 0px 5px;" text="Number Defeated: 0">
+            <font>
+               <Font name="Times New Roman" size="15.0" />
+            </font></Label>
+          <Label fx:id="lblEncounters3" style="-fx-padding: 0px 5px;" text="Number Captured: 0">
+            <font>
+               <Font name="Times New Roman" size="15.0" />
+            </font></Label>
+      </children>
+      <VBox.margin>
+         <Insets top="-10.0" />
+      </VBox.margin>
    </VBox>
 </VBox>

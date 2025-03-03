@@ -1,5 +1,30 @@
 package models
 
+/**
+ * La classe [Pokemon] representa un Pokémon amb les seves característiques,
+ * com el número, el nom, els tipus, les habilitats, les estadístiques de combat,
+ * entre altres atributs. Aquesta classe inclou mètodes per obtenir i modificar
+ * les propietats d'un Pokémon, així com per generar la ruta de la seva imatge.
+ *
+ * @constructor Crea un nou Pokémon amb els atributs proporcionats.
+ * @param number El número del Pokémon (ID).
+ * @param name El nom del Pokémon.
+ * @param type1 El primer tipus del Pokémon.
+ * @param type2 El segon tipus del Pokémon.
+ * @param abilities Les habilitats del Pokémon.
+ * @param hp Els punts de salut del Pokémon.
+ * @param attack Els punts d'atac del Pokémon.
+ * @param defense Els punts de defensa del Pokémon.
+ * @param spAtk Els punts d'atac especial del Pokémon.
+ * @param spDef Els punts de defensa especial del Pokémon.
+ * @param speed Els punts de velocitat del Pokémon.
+ * @param experienceType El tipus d'experiència del Pokémon.
+ * @param finalEvolution Indica si el Pokémon és la seva evolució final.
+ * @param catchRate La taxa de captura del Pokémon.
+ * @param legendary Indica si el Pokémon és llegendari.
+ * @param height L'alçada del Pokémon en metres.
+ * @param weight El pes del Pokémon en quilograms.
+ */
 class Pokemon {
     private var number: Int
     private var name: String
